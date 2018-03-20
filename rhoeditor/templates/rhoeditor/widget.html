@@ -1,0 +1,26 @@
+{% load static %}
+  <style type="text/css" media="screen">
+	.ace_editor {
+		border: 1px solid lightgray;
+		margin: auto;
+		height: 700px;
+		width: 80%;
+	}
+</style>
+<div id="editor">some text</div>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/tomorrow_night_eighties");
+    editor.session.setMode("ace/mode/rholang");
+//    editor.setAutoScrollEditorIntoView(true);
+//    editor.setOption("maxLines", 30);
+    editor.session.setTabSize(2);
+    editor.renderer.setScrollMargin(10, 10);
+    editor.setOptions({
+      autoScrollEditorIntoView: true,
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: false
+    });
+    editor.resize()
+</script>

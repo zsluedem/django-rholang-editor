@@ -1,0 +1,3 @@
+include README.rst LICENCE
+recursive-include django_rholang_editor/static *
+recursive-include django_rholang_editor/templates *

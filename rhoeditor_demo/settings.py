@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "rhoeditor_demo.demo_application",
-    "rhoeditor"
+    "django-rholang-editor"
 ]
 
 MIDDLEWARE = [

@@ -11,18 +11,17 @@ class RholangTextFields(models.TextField):
 
     def formfield(self, **kwargs):
         defaults = {
-            "form_class":self._get_form_class()
+            "form_class": self._get_form_class()
         }
         defaults.update(kwargs)
         super(RholangTextFields, self).formfield(**defaults)
-        
+
     @staticmethod
     def _get_form_class():
         return RholangTextFormField
 
+
 class RholangTextFormField(forms.fields.CharField):
     def __init__(self, *args, **kwargs):
-        kwargs.update({"widget":RhoEditorWidget()})
+        kwargs.update({"widget": RhoEditorWidget()})
         super(RholangTextFormField, self).__init__(*args, **kwargs)
-
-

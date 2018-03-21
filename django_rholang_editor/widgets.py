@@ -1,43 +1,34 @@
 from __future__ import absolute_import
 
-
 from django import forms
-from django import forms
-from django.conf import settings
-from django.core.exceptions import ImproperlyConfigured
-from django.core.serializers.json import DjangoJSONEncoder
 from django.template.loader import render_to_string
-from django.utils.encoding import force_text
-from django.utils.functional import Promise
-from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
-from django.utils.translation import get_language
-from js_asset import JS, static
+from js_asset import JS
 
 
 class RhoEditorWidget(forms.Textarea):
     class Media:
         js = (
-            JS("rhoeditor/rhoeditor/ace.js",{}),
-            JS("rhoeditor/rhoeditor/ext-language_tools.js",{})
+            JS("rhoeditor/rhoeditor/ace.js", {}),
+            JS("rhoeditor/rhoeditor/ext-language_tools.js", {})
         )
-    def __init__(self,default_text="", height="400px", width="100%", js_variable="editor",*args, **kwargs):
+
+    def __init__(self, default_text="", height="400px", width="100%", js_variable="editor", *args, **kwargs):
         self._default_text = default_text
         self._height = height
         self._width = width
         self._js_variable = js_variable
-        super(RhoEditorWidget, self).__init__( *args, **kwargs)
+        super(RhoEditorWidget, self).__init__(*args, **kwargs)
 
     def render(self, name, value, attrs=None, renderer=None):
         return mark_safe(render_to_string(
             "rhoeditor/widget.html",
             {
-                "default_text":self._default_text,
-                "height":self._height,
-                "width" :self._width,
+                "default_text": self._default_text,
+                "height": self._height,
+                "width": self._width,
                 "variable": self._js_variable,
-                "widget_name":name
+                "widget_name": name
 
             }
         ))
-

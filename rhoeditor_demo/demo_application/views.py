@@ -1,8 +1,9 @@
 # coding=utf8
 
-from django.views import generic
-from .forms import RhoEditorForm
 from django.urls import reverse
+from django.views import generic
+
+from .forms import RhoEditorForm
 
 
 class RhoEditorFormView(generic.FormView):

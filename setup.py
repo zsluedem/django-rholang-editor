@@ -7,7 +7,6 @@ from setuptools import setup, find_packages
 version = re.search('^__version__ = "(.+?)"$',
                     open(join('django_rholang_editor', '__init__.py')).read(), re.MULTILINE).group(1)
 packages = find_packages(exclude=["rhoeditor_demo.*","rhoeditor_demo"])
-print(packages)
 setup(
     name='django_rholang_editor',
     version=version,

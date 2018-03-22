@@ -29,6 +29,5 @@ class RhoEditorWidget(forms.Textarea):
                 "width": self._width,
                 "variable": self._js_variable,
                 "widget_name": name
-
             }
         ))

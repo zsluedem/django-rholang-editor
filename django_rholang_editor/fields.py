@@ -22,6 +22,6 @@ class RholangTextFields(models.TextField):
 
 
 class RholangTextFormField(forms.fields.CharField):
-    def __init__(self, *args, **kwargs):
-        kwargs.update({"widget": RhoEditorWidget()})
+    def __init__(self, default_text="", height="400px", width="100%", js_variable="editor", *args, **kwargs):
+        kwargs.update({"widget": RhoEditorWidget(default_text=default_text, height=height, width=width, js_variable=js_variable)})
         super(RholangTextFormField, self).__init__(*args, **kwargs)

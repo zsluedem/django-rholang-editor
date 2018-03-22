@@ -17,7 +17,7 @@ setup(
     author='zsluedem',
     author_email='zsluedem06@gmail.com',
     license="Simplified BSD",
-    url='https://github.com/zsluedem/django-rholang_editor',
+    url='https://github.com/zsluedem/django-rholang-editor',
 
     packages=packages,
     include_package_data=True,

@@ -61,6 +61,6 @@ pip install django-rholang-editor
 ```python
 INSTALLED_APPS = (
     # ...
-    'django_ace',
+    'django_rholang_editor',
 )
 ```

@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 from django import forms
-from rhoeditor.fields import RholangTextFormField
+from django_rholang_editor.fields import RholangTextFormField
 
 
 class RhoEditorForm(forms.Form):

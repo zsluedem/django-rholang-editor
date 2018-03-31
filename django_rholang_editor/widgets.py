@@ -6,7 +6,8 @@ from django.utils.safestring import mark_safe
 from js_asset import JS
 
 
-class RhoEditorWidget(forms.Textarea):
+class RhoEditorWidget(forms.Widget):
+    template_name = "rhoeditor/widget.html"
     class Media:
         js = (
             JS("rhoeditor/rhoeditor/ace.js", {}),
@@ -20,14 +21,18 @@ class RhoEditorWidget(forms.Textarea):
         self._js_variable = js_variable
         super(RhoEditorWidget, self).__init__(*args, **kwargs)
 
+    def get_context(self, name, value, attrs):
+        context = super(RhoEditorWidget, self).get_context(name, value, attrs)
+        context['widget']['default_text'] = self._default_text
+        context['widget']['height'] = self._height
+        context['widget']['width'] = self._width
+        context['widget']['variable'] = self._js_variable
+        return context
+
+
     def render(self, name, value, attrs=None, renderer=None):
+        context = self.get_context(name, value, attrs)
         return mark_safe(render_to_string(
-            "rhoeditor/widget.html",
-            {
-                "default_text": self._default_text,
-                "height": self._height,
-                "width": self._width,
-                "variable": self._js_variable,
-                "widget_name": name
-            }
+            self.template_name,
+            context
         ))

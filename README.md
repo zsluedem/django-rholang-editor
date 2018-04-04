@@ -5,7 +5,7 @@
 [Rholang](https://developer.rchain.coop/) is a new language for writing smart contracts that run on the RChain virtual machine.
 You can find more in the [Rholang tutorial](https://developer.rchain.coop/tutorial) 
 
-##Usage
+## Usage
 
 If you want to use the django form way and post the text in the rholang-editor. You may use as below.
 ```python
